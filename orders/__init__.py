@@ -1,5 +1,5 @@
 PENDING = 'pending'
 PROCESSING = 'processing'
-CANCELLLED = 'cancelled'
+CANCELLED = 'cancelled'
 COMPLETED  = 'completed'
 
