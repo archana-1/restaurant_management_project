@@ -1,8 +1,8 @@
 import secrets
 from .models import Coupon
-import strings
+import string
 
-def generate_coupon_code(len = ):
+def generate_coupon_code(len =10 ):
     # generates coupon code(alpha num) of len 10
     code = ""
     characters = string.ascii_uppercase+string.digits
