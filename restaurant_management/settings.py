@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'products',
     'orders',
     'mynotes',
+    'rest_framework.authtoken'
 ]
 
 MIDDLEWARE = [
@@ -57,11 +58,17 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'restaurant_management.urls'
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES':[
+        'rest_framework.authentication.TokenAuthentication',
+        
+    ]
+}
 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -87,7 +94,7 @@ DATABASES = {
     }
 }
 
-
+AUTH_USER_MODEL = 'account.CustomUser'
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
 
