@@ -7,6 +7,7 @@ from .models import Restaurant, MenuItem, Customer
 from django.contrib.auth import authenticate, get_user_model
 from rest_framework.views import APIView
 from django.urls import reverse
+
 # Create your views here.
 @api_view(['GET'])
 def menuitems(request, pk= None):
@@ -79,7 +80,13 @@ def register_restaurant(request, pk =None):
 
 # CLASS FOR STAFF LOGIN API
 class StaffLoginAPIView(APIView):
-  
+    
+
+    def get(self, request):
+        
+        serializer = StaffLoginSerializer()
+        return Response(serializer.data)
+    
     def post(self, request):
         serializer  = StaffLoginSerializer(data = request.data)
 
@@ -87,7 +94,7 @@ class StaffLoginAPIView(APIView):
             email = serializer.validated_data['email']
             password = serializer.validated_data['password']
 
-            User  = get_user_model()
+            User  = get_user_model()    
             myuser = User.objects.get(email = email)
             res_id  = myuser.restaurant.id # restaurant id
             if myuser.check_password(password) and myuser.is_staff:

@@ -15,7 +15,8 @@ def create_order(request, pk=None):
             "customer": {
                 "name": order.customer.name,
                 "phone":order.customer.phone
-            }
+            },
+            "price": order.total_price
         }
         return Response(response_data)
     return Response(serializer.errors)

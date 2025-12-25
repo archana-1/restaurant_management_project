@@ -27,7 +27,7 @@ class OrderSerializer(serializers.Serializer):
             )
 
         # calculate total price
-        menu_items  = MenuItem.objects.filter(name__in=items)
+        menu_items  = MenuItem.objects.filter(name__in=items,restaurant= restaurant)
         for item in menu_items:
             if item.is_available and item.restaurant.id == res_id:
                 total_price += item.price

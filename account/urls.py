@@ -2,11 +2,11 @@ from django.urls import path
 from .views import *
 
 urlpatterns = [
-    path('',restaurants, name= 'getrestaurants'),
-    path('restaurant/<int:pk>',restaurants, name= 'getrestaurant'),
-    path('register', register_restaurant, name= 'register'),
-    path('update/<int:pk>', register_restaurant, name= 'update'),
-    path('delete/<int:pk>', delete_restaurant, name= 'delete'),
+    path('restaurants/',restaurants, name= 'getrestaurants'),
+    path('restaurant/<int:pk>/',restaurants, name= 'restaurant'),
+    path('register/', register_restaurant, name= 'register'),
+    path('update/<int:pk>/', register_restaurant, name= 'update'),
+    path('delete/<int:pk>/', delete_restaurant, name= 'delete'),
 
 
     path('staff/login', StaffLoginAPIView.as_view(), name = "staff_login"),

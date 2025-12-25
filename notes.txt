@@ -1,0 +1,28 @@
+email: archana@gmail.com
+pass: 12345
+
+urls
+register restaurant:
+ http://127.0.0.1:8000/api/accounts/register/
+
+list all restaurant
+http://127.0.0.1:8000/api/accounts/restaurants/
+a restaurant:
+
+
+
+create menuitem need restaurant id
+http://127.0.0.1:8000/api/accounts/restaurant/1/menuitem/create
+
+list menuitems of a restaurant
+http://127.0.0.1:8000/api/accounts/restaurant/1/menuitems/
+
+create order:
+{
+    "customer": {
+        "name": "ary",
+        "phone": "57558523368"
+    },
+    "items": ["grilled sandwiches"],
+    "res_id": 1
+}

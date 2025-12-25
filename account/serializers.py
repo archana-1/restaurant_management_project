@@ -3,7 +3,7 @@ from .models import Restaurant, MenuItem, Customer
 class RestaurantSerializer(serializers.ModelSerializer):
     class Meta:
         model = Restaurant
-        fields= ['name', 'decription', 'price']
+        fields= ['name', 'owner_name', 'address' ]
 
 class StaffLoginSerializer(serializers.Serializer):
     email = serializers.EmailField()
